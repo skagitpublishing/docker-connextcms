@@ -14,11 +14,12 @@ RUN apt-get update
 RUN apt-get install -y sudo
 
 #Create the user 'connextcms' and add them to the sudo group.
-RUN useradd -ms /bin/bash connextcms
-RUN adduser connextcms sudo
+#RUN useradd -ms /bin/bash connextcms
+#RUN adduser connextcms sudo
+
 #Set password to 'password' change value below if you want a different password
-RUN echo connextcms:password | chpasswd
+#RUN echo connextcms:password | chpasswd
 
 #Log into the shell as the newly created user
-USER connextcms
-WORKDIR /home/connextcms
+#USER connextcms
+#WORKDIR /home/connextcms
