@@ -24,7 +24,7 @@ RUN echo connextcms:password | chpasswd
 WORKDIR /home/connextcms
 
 #Copy the source files into the container working directory.
-COPY mongodb.service
+COPY mongodb.service /home/connextcms
 
 #VOLUME /home/connextcms
 
