@@ -1,10 +1,10 @@
 #Creates a ConnextCMS/KeystoneJS installation in Ubuntu container with user/password connextcms/password
 
 #Build docker image as 'keystonejs':
-#docker build -t keystonejs .
+#docker build -t connextcms .
 
 #Execute my keystonejs docker image
-#docker container run --name keystonejs --rm -it keystonejs bash
+#docker container run --name connextcms --rm -it connextcms bash
 
 FROM ubuntu:16.10
 MAINTAINER Chris Troutner <chris.troutner@gmail.com>
