@@ -9,11 +9,12 @@
 #Run the MongoDB image
 #Map port 27017 on the image to 3500 on the host.
 #docker run --name mongo -d -p 3500:27017 mongo
+#docker run --name mongo -d -p 3500:27017 -v ./db:/data/db mongo
 
 #Execute my keystonejs docker image
 #docker container run --name connextcms --rm -it connextcms bash
 #docker container run --name connextcms --link mongo:mongo --rm -it connextcms bash
-
+#docker container run --name connextcms --link mongo:mongo -v ./theme:/home/connextcms/theme --rm -it connextcms bash
 
 
 #IMAGE BUILD COMMANDS
@@ -48,13 +49,16 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 RUN npm install -g npm
 
-
-
-
-#VOLUME /home/connextcms
+#Create a volume for persisting MongoDB data.
+VOLUME /data/db
 
 #Log into the shell as the newly created user
 USER connextcms
 
+RUN mkdir /home/connextcms/theme
 RUN git clone https://github.com/christroutner/keystone4-compiled
 RUN git clone https://github.com/skagitpublishing/ConnextCMS
+RUN git clone https://github.com/skagitpublishing/plugin-template-connextcms
+
+#Create a directory for customizing the new site.
+VOLUME /home/connextcms/theme
