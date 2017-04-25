@@ -8,12 +8,9 @@
 
 #Run the MongoDB image
 #Map port 27017 on the image to 3500 on the host.
-#docker run --name mongo -d -p 3500:27017 mongo
 #docker run --name mongo -d -p 3500:27017 --rm -v <your path>/db:/data/db mongo
 
 #Execute my keystonejs docker image
-#docker container run --name connextcms --rm -it connextcms bash
-#docker container run --name connextcms --link mongo:mongo --rm -it connextcms bash
 #docker container run --name connextcms --link mongo:mongo -v <your path>/theme:/home/connextcms/theme --rm -it connextcms bash
 
 
