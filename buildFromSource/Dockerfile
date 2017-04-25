@@ -4,16 +4,14 @@
 
 #INSTRUCTIONS
 #Build docker image as 'keystonejs':
-#docker build -t connextcms .
+#docker build -t keystonejs-build .
 
 #Run the MongoDB image
-#docker run --name mongo -d mongo
 #Map port 27017 on the image to 3500 on the host.
-#docker run --name mongo -d -p 3500:27017 mongo
+#docker run --name mongo -d -p 3500:27017 --rm -v <your path>/db:/data/db mongo
 
 #Execute my keystonejs docker image
-#docker container run --name connextcms --rm -it connextcms bash
-#docker container run --name connextcms --link mongo:mongo --rm -it connextcms bash
+#docker container run --name keystonejs-build --link mongo:mongo --rm -it connextcms bash
 
 #IMAGE BUILD COMMANDS
 FROM ubuntu:16.10
