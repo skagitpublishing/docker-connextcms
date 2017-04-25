@@ -3,18 +3,18 @@
 #weight than building KeystoneJS from source.
 
 #INSTRUCTIONS
-#Build docker image as 'keystonejs':
+#Build docker image as 'connextcms':
 #docker build -t connextcms .
 
 #Run the MongoDB image
 #Map port 27017 on the image to 3500 on the host.
 #docker run --name mongo -d -p 3500:27017 mongo
-#docker run --name mongo -d -p 3500:27017 -v ./db:/data/db mongo
+#docker run --name mongo -d -p 3500:27017 --rm -v <your path>/db:/data/db mongo
 
 #Execute my keystonejs docker image
 #docker container run --name connextcms --rm -it connextcms bash
 #docker container run --name connextcms --link mongo:mongo --rm -it connextcms bash
-#docker container run --name connextcms --link mongo:mongo -v ./theme:/home/connextcms/theme --rm -it connextcms bash
+#docker container run --name connextcms --link mongo:mongo -v <your path>/theme:/home/connextcms/theme --rm -it connextcms bash
 
 
 #IMAGE BUILD COMMANDS
@@ -58,7 +58,8 @@ USER connextcms
 RUN mkdir /home/connextcms/theme
 RUN git clone https://github.com/christroutner/keystone4-compiled
 RUN git clone https://github.com/skagitpublishing/ConnextCMS
-RUN git clone https://github.com/skagitpublishing/plugin-template-connextcms
+#RUN git clone https://github.com/skagitpublishing/plugin-template-connextcms
+RUN mv keystone4-compiled keystone4
 
 #Create a directory for customizing the new site.
 VOLUME /home/connextcms/theme
