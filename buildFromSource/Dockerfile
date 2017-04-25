@@ -34,17 +34,6 @@ RUN echo connextcms:password | chpasswd
 #Set the working directory to be the connextcms home directory
 WORKDIR /home/connextcms
 
-#Install mongodb
-#RUN apt-get install -y dirmngr
-#RUN apt-get install -y systemd
-#RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-#RUN echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-#RUN apt-get update
-#RUN apt-get install -y mongodb-org
-#COPY mongodb.service /etc/systemd/system/
-#RUN systemctl start mongodb
-#RUN systemctl enable mongodb
-
 #Install KeystoneJS Dependencies
 RUN apt-get install -y make
 RUN apt-get install -y git
@@ -64,7 +53,7 @@ RUN npm install -g npm
 #VOLUME /home/connextcms
 
 #Log into the shell as the newly created user
-#USER connextcms
+USER connextcms
 
 RUN echo 'password' | sudo -S pwd
 RUN sudo npm install -g yo
