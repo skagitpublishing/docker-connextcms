@@ -3,7 +3,7 @@
 #KeystoneJS from source using 'yo keystone'.
 
 #INSTRUCTIONS
-#Build docker image as 'keystonejs':
+#Build docker image as 'keystonejs-build':
 #docker build -t keystonejs-build .
 
 #Run the MongoDB image
@@ -12,6 +12,9 @@
 
 #Execute my keystonejs docker image
 #docker container run --name keystonejs-build --link mongo:mongo --rm -it connextcms bash
+
+
+
 
 #IMAGE BUILD COMMANDS
 FROM ubuntu:16.10
@@ -58,16 +61,15 @@ RUN apt-get install -y build-essential
 RUN npm install -g npm
 
 
-
-
 #VOLUME /home/connextcms
 
 #Log into the shell as the newly created user
 #USER connextcms
 
-#RUN echo 'password' | sudo -S command
-#RUN sudo npm install -g yo
-#RUN sudo npm install -g generator-keystone
+RUN echo 'password' | sudo -S pwd
+RUN sudo npm install -g yo
+RUN sudo npm install -g generator-keystone
+RUN sudo chown -R connextcms .config
 
 #Installation steps:
 # 1. run 'yo keystone' to build a KeystoneJS app using the yeoman generator
