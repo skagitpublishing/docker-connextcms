@@ -57,8 +57,4 @@ RUN npm install -g npm
 USER connextcms
 
 RUN git clone https://github.com/christroutner/keystone4-compiled
-
-#echo 'password' | sudo -S command
-#sudo npm install -g yo
-#sudo npm install -g generator-keystone
-#sudo chown -R connextcms .config
+RUN git clone https://github.com/skagitpublishing/ConnextCMS
