@@ -70,7 +70,7 @@ RUN sudo chmod 775 finalsetup
 RUN ./finalsetup
 
 #Clean up files
-RUN mv -f finalsetup /theme/
+RUN rm -f finalsetup /theme/
 RUN rm -f keystone.js
 RUN rm -f nodesource_setup.sh
 
