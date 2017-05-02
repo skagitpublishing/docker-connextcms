@@ -69,15 +69,9 @@ RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN ./finalsetup
 
-#RUN chmod 775 ~/theme/finalsetup
-#RUN cp finalsetup theme/
-#RUN chmod 775 finalsetup
-#RUN finalsetup
+#Clean up files
+RUN mv -f finalsetup /theme/
+RUN rm -f keystone.js
+RUN rm -f nodesource_setup.sh
 
-#RUN cd connextCMS
-#RUN connextCMS/copy-keystone
-#RUN connextCMS/merge-connextcms-keystone
-#RUN cd ../myCMS
-#RUN npm install
-#RUN cp ../theme/keystone.js .
 
