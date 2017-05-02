@@ -26,7 +26,7 @@ running a $5 server for two months.
 
 `docker pull mongo`
 
-3. Runt the MongoDB image with its port 27017 mapped to the host port of 3500. Replace `<your path>`
+3. Run the MongoDB image with its port 27017 mapped to the host port of 3500. Replace `<your path>`
 with an absolute directory path to a folder where you want DB data to be persisted. For example,
 `~/docker-connextcms/db` is a good path, assuming you cloned this repository in your home directory.
 
