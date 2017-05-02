@@ -8,4 +8,4 @@ cd connextCMS
 cd
 cd myCMS
 npm install
-cp ../theme/keystone.js .
+cp ~/keystone.js .

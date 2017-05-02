@@ -64,6 +64,7 @@ RUN mv ConnextCMS connextCMS
 
 
 COPY finalsetup finalsetup
+COPY keystone.js keystone.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN ./finalsetup
