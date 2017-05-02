@@ -34,7 +34,8 @@ WORKDIR /home/connextcms
 
 #Install KeystoneJS Dependencies
 RUN apt-get install -y git
-RUN apt-get install curl
+RUN apt-get install -y curl
+RUN apt-get install -y nano
 #RUN apt-get install -y make
 #RUN apt-get install -y g++
 #RUN apt-get install -y python
@@ -52,12 +53,19 @@ VOLUME /data/db
 #Log into the shell as the newly created user
 USER connextcms
 
+#Create a directory for customizing the new site.
+VOLUME /home/connextcms/theme
+
 RUN mkdir /home/connextcms/theme
 RUN git clone https://github.com/christroutner/keystone4-compiled
 RUN git clone https://github.com/skagitpublishing/ConnextCMS
 #RUN git clone https://github.com/skagitpublishing/plugin-template-connextcms
 RUN mv keystone4-compiled keystone4
 RUN mv ConnextCMS connextCMS
+RUN cd connextCMS
+RUN ./copy-keystone
+RUN ./merge-connextcms-keystone
+RUN cd ../myCMS
+RUN npm install
+RUN cp ../theme/keystone.js .
 
-#Create a directory for customizing the new site.
-VOLUME /home/connextcms/theme
