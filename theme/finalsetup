@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#Final setup script. Executed at the end of the Dockerimage to do final setup.
+cd
+cd connextCMS
+./copy-keystone
+./merge-connextcms-keystone
+cd
+cd myCMS
+npm install
+cp ../theme/keystone.js .
