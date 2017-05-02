@@ -63,8 +63,8 @@ RUN mv keystone4-compiled keystone4
 RUN mv ConnextCMS connextCMS
 
 #RUN chmod 775 ~/theme/finalsetup
-COPY finalsetup ~/theme/
-RUN ~/theme/finalsetup
+COPY finalsetup ~
+RUN finalsetup
 
 #RUN cd connextCMS
 #RUN connextCMS/copy-keystone
