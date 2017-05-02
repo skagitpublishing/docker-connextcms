@@ -48,31 +48,17 @@ git clone https://github.com/christroutner/docker-connextcms
 index.hbs or default.hbs and any API files. This is where you would clone the 
 [ConnextCMS Plugin Template](https://github.com/skagitpublishing/plugin-template-connextcms).
 
-`docker container run --name connextcms --link mongo:mongo -v <your path>/theme:/home/connextcms/theme --rm -it connextcms bash`
+`docker container run --name connextcms -v <your path>/theme:/home/connextcms/theme --link mongo:mongo -p 3000:3000 --rm -it connextcms bash`
 
 This will open a bash shell within the Docker container. You will be automatically logged in as user 'connextcms' with sudo
 privileges and a password of 'password'. 
 
-7. Complete the final setup of ConnextCMS/KeystoneJS with the following commands,
-based on the [ConnextCMS installation directions](https://github.com/skagitpublishing/connextCMS/wiki/2.-Installation).
+7. Run KeystoneJS with the following commands:
 
 ```
-cd connextCMS
-./copy-keystone
-./merge-connextcms-keystone
-cd
-cd myCMS
-npm install
+cp myCMS
+node keystone.js &
 ```
 
-8. Edit the `keystone.js` file to set up the proper connection to MongoDB, by using the `nano` text editor to add this line:
-
-`'mongo': 'mongodb://172.17.0.1:3500/test'`
-
-just below this line: `'user model': 'User',`. Save the file by hitting `Ctrl-X` and press `Y` to save.
-
-9. You can now launch KeystoneJS/ConnextCMS with the following
-command: 
-
-`node keystone.js &`
+KeystoneJS will now be running on port 3000, with ConnextCMS running with it.
 
