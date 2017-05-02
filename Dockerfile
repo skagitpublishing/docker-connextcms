@@ -61,10 +61,10 @@ RUN git clone https://github.com/skagitpublishing/ConnextCMS
 #RUN git clone https://github.com/skagitpublishing/plugin-template-connextcms
 RUN mv keystone4-compiled keystone4
 RUN mv ConnextCMS connextCMS
-RUN cd connextCMS
-RUN ./copy-keystone
-RUN ./merge-connextcms-keystone
-RUN cd ../myCMS
-RUN npm install
-RUN cp ../theme/keystone.js .
+#RUN cd connextCMS
+RUN connextCMS/copy-keystone
+RUN connextCMS/merge-connextcms-keystone
+#RUN cd ../myCMS
+#RUN npm install
+#RUN cp ../theme/keystone.js .
 
