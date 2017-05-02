@@ -62,8 +62,13 @@ RUN git clone https://github.com/skagitpublishing/ConnextCMS
 RUN mv keystone4-compiled keystone4
 RUN mv ConnextCMS connextCMS
 
-#RUN chmod 775 ~/theme/finalsetup
+
 COPY finalsetup finalsetup
+RUN echo 'password' | sudo -S pwd
+RUN sudo chmod 775 finalsetup
+RUN ./finalsetup
+
+#RUN chmod 775 ~/theme/finalsetup
 #RUN cp finalsetup theme/
 #RUN chmod 775 finalsetup
 #RUN finalsetup
