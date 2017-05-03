@@ -44,12 +44,17 @@ with an absolute directory path to a folder where you want DB data to be persist
 
 5. Build the ConnextCMS/KeystoneJS Docker image:
 
-`docker build -t connextcms .`
+```
+cd docker-connextcms
+docker build -t connextcms .
+```
 
 
 6. Run the ConnextCMS/KeystoneJS image. Again, replace `<your path>` with an appropriate path, like
 `~/docker-connextcms/`. The theme directory is where you would store your site-specific files like
 index.hbs or default.hbs and any API files. This is where you would clone the 
+[ConnextCMS Site Template](https://github.com/skagitpublishing/site-template-connextcms), 
+or if you're more ambitious, the 
 [ConnextCMS Plugin Template](https://github.com/skagitpublishing/plugin-template-connextcms).
 
 `docker container run --name connextcms -v <your path>/theme:/home/connextcms/theme --link mongo:mongo -p 3000:3000 --rm -it connextcms bash`
@@ -61,7 +66,7 @@ privileges and a password of 'password'.
 7. Run KeystoneJS with the following commands:
 
 ```
-cp myCMS
+cd myCMS
 node keystone.js &
 ```
 
