@@ -22,26 +22,30 @@ shows how to install Docker on a Ubuntu 16.04 system. It's specifically targeted
 Use [this link](https://m.do.co/c/8f47a23b91ce) to sign up for a Digital Ocean account and get a $10 credit, capable of
 running a $5 server for two months.
 
-2. Pull the MongoDB docker image by running this command:
 
-`docker pull mongo`
-
-3. Run the MongoDB image with its port 27017 mapped to the host port of 3500. Replace `<your path>`
-with an absolute directory path to a folder where you want DB data to be persisted. For example,
-`~/docker-connextcms/db` is a good path, assuming you cloned this repository in your home directory.
-
-`docker run --name mongo -d -p 3500:27017 --rm -v <your path>/db:/data/db mongo`
-
-4. Clone this repository. It's assumed from here on out that you're using your home directory, aliased with `~`:
+2. Clone this repository. It's assumed from here on out that you're using your home directory, aliased with `~`:
 
 ```
 cd
 git clone https://github.com/christroutner/docker-connextcms
 ```
 
+3. Pull the MongoDB docker image by running this command:
+
+`docker pull mongo`
+
+
+4. Run the MongoDB image with its port 27017 mapped to the host port of 3500. Replace `<your path>`
+with an absolute directory path to a folder where you want DB data to be persisted. For example,
+`~/docker-connextcms/db` is a good path, assuming you cloned this repository in your home directory.
+
+`docker run --name mongo -d -p 3500:27017 --rm -v <your path>/db:/data/db mongo`
+
+
 5. Build the ConnextCMS/KeystoneJS Docker image:
 
 `docker build -t connextcms .`
+
 
 6. Run the ConnextCMS/KeystoneJS image. Again, replace `<your path>` with an appropriate path, like
 `~/docker-connextcms/`. The theme directory is where you would store your site-specific files like
@@ -52,6 +56,7 @@ index.hbs or default.hbs and any API files. This is where you would clone the
 
 This will open a bash shell within the Docker container. You will be automatically logged in as user 'connextcms' with sudo
 privileges and a password of 'password'. 
+
 
 7. Run KeystoneJS with the following commands:
 
