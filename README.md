@@ -8,7 +8,7 @@ Instructions for running the image are in the top of the Dockerfile.
 
 A second Dockerfile exists in the `buildFromSource` directory. This creates an environment ready to run
 the `yo keystone` command to build KeystoneJS from scratch. This environment is used to create and update
-the [keystone4-compiled](https://github.com/christroutner/keystone4-compiled) repository used by first 
+the [keystone4-compiled](https://github.com/skagitpublishing/keystone4-compiled) repository used by the first 
 Dockerfile.
 
 The Dockerfiles assume that the MongoDB containerhas it's internal port 27017 mapped to host port 3500.

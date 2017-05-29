@@ -57,7 +57,7 @@ USER connextcms
 #Create a directory for customizing the new site.
 VOLUME /home/connextcms/theme
 
-RUN git clone https://github.com/christroutner/keystone4-compiled
+RUN git clone https://github.com/skagitpublishing/keystone4-compiled
 RUN git clone https://github.com/skagitpublishing/ConnextCMS
 #RUN git clone https://github.com/skagitpublishing/plugin-template-connextcms
 RUN mv keystone4-compiled keystone4
