@@ -1,0 +1,1 @@
+This directory contains database files for MongoDB.

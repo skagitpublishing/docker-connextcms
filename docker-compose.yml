@@ -3,7 +3,7 @@ mongodb:
   ports: 
     - "3500:27017"
   volumes:
-    - /data/db
+    - ./data:/data/db
     
     
 connextcms:
@@ -14,4 +14,6 @@ connextcms:
   ports:
     - "3000:3000"
   volumes:
-    - /home/connextcms/theme
+    - ./theme:/home/connextcms/theme
+    - ./plugins:/home/connextcms/plugins
+    
