@@ -46,7 +46,7 @@ RUN bash nodesource_setup.sh
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 RUN npm install -g npm
-RUN npm install -g node-inspector
+#RUN npm install -g node-inspector
 
 #Create a volume for persisting MongoDB data.
 VOLUME /data/db
