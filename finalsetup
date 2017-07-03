@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #Final setup script. Executed at the end of the Dockerimage to do final setup.
+#Customize this script to execute and plugin or site merge scripts.
 cd
 cd connextCMS
 ./copy-keystone
