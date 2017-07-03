@@ -23,7 +23,7 @@ keystone.init({
   'favicon': 'public/favicon.ico',
   'views': 'templates/views',
   'view engine': 'hbs',
-  'port': 3000,
+  'port': 80,
 
   'custom engine': handlebars.create({
           layoutsDir: 'templates/views/layouts',
@@ -37,7 +37,7 @@ keystone.init({
   'session': true,
   'auth': true,
   'user model': 'User',
-  'mongo': 'mongodb://172.17.0.1:3500/test'
+  'mongo': 'mongodb://172.17.0.1:3500/connextcms'
 });
 
 // Load your project's Models
