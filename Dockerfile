@@ -38,7 +38,7 @@ RUN apt-get install -y curl
 RUN apt-get install -y nano
 #RUN apt-get install -y make
 #RUN apt-get install -y g++
-#RUN apt-get install -y python
+RUN apt-get install -y python
 
 #Install Node and NPM
 RUN curl -sL https://deb.nodesource.com/setup_4.x -o nodesource_setup.sh
