@@ -71,7 +71,7 @@ RUN sudo chmod 775 finalsetup
 RUN ./finalsetup
 
 #Installation is buggy.
-RUN sudo npm install -g node-inspector
+#RUN sudo npm install -g node-inspector
 
 #Clean up files
 RUN rm -f finalsetup /theme/
