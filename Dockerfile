@@ -78,6 +78,6 @@ RUN rm -f nodesource_setup.sh
 
 WORKDIR /home/connextcms/myCMS
 
-EXPOSE 3000
+EXPOSE 80
 
 CMD ["node", "keystone.js"]
