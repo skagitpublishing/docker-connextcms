@@ -16,5 +16,5 @@ connextcms:
   volumes:
     - ./theme:/home/connextcms/theme
     - ./plugins:/home/connextcms/plugins
-  command: mongod --smallfiles --logpath=/dev/null # -- quiet
+  command: --smallfiles --logpath=/dev/null # -- quiet
     
