@@ -4,7 +4,7 @@ mongodb:
     - "3500:27017"
   volumes:
     - ./data:/data/db
-    
+  command: mongod --smallfiles --logpath=/dev/null # -- quiet
     
 connextcms:
   build: .
@@ -16,5 +16,5 @@ connextcms:
   volumes:
     - ./theme:/home/connextcms/theme
     - ./plugins:/home/connextcms/plugins
-  command: --smallfiles --logpath=/dev/null # -- quiet
+  
     
