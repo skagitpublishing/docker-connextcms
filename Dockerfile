@@ -76,7 +76,8 @@ RUN rm -f finalsetup /theme/
 RUN rm -f keystone.js
 RUN rm -f nodesource_setup.sh
 
+WORKDIR /home/connextcms/myCMS
+
 EXPOSE 3000
 
-CMD ["cd", "myCMS"]
 CMD ["node", "keystone.js"]
