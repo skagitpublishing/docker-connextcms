@@ -47,9 +47,6 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 RUN npm install -g npm
 
-#Installation is buggy.
-#RUN npm install -g node-inspector
-
 #Create a volume for persisting MongoDB data.
 VOLUME /data/db
 
@@ -72,6 +69,9 @@ COPY keystone.js keystone.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN ./finalsetup
+
+#Installation is buggy.
+RUN sudo npm install -g node-inspector
 
 #Clean up files
 RUN rm -f finalsetup /theme/
