@@ -45,7 +45,7 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
-RUN npm install -g npm
+#RUN npm install -g npm
 
 #Create a volume for persisting MongoDB data.
 VOLUME /data/db
@@ -57,12 +57,19 @@ USER connextcms
 VOLUME /home/connextcms/theme
 VOLUME /home/connextmcs/plugins
 
+#Clone the keystone files.
 RUN git clone https://github.com/skagitpublishing/keystone4-compiled
-RUN git clone https://github.com/skagitpublishing/ConnextCMS
-#RUN git clone https://github.com/skagitpublishing/plugin-template-connextcms
 RUN mv keystone4-compiled keystone4
+#WORKDIR /home/connextcms/keystone4/node_modules/keystone
+#RUN npm install
+#WORKDIR /home/connextcms
+
+#Clone ConnextCMS
+RUN git clone https://github.com/skagitpublishing/ConnextCMS
 RUN mv ConnextCMS connextCMS
 
+#Clone plugins
+#RUN git clone https://github.com/skagitpublishing/plugin-template-connextcms
 
 COPY finalsetup finalsetup
 COPY keystone.js keystone.js
