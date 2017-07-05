@@ -1,17 +1,10 @@
-#Creates a ConnextCMS/KeystoneJS installation in Ubuntu container with user/password connextcms/password
+#Creates a ConnextCMS/KeystoneJS installation in Ubuntu container with user/password: connextcms/password
 #This version of the Dockerfile leverages a pre-built git hub repository that is faster and lighter
 #weight than building KeystoneJS from source.
 
 #INSTRUCTIONS
-#Build docker image as 'connextcms':
-#docker build -t connextcms .
-
-#Run the MongoDB image
-#Map port 27017 on the image to 3500 on the host.
-#docker run --name mongo -d -p 3500:27017 --rm -v <your path>/db:/data/db mongo
-
-#Execute my keystonejs docker image
-#docker container run --name connextcms --link mongo:mongo -v <your path>/theme:/home/connextcms/theme --rm -it connextcms bash
+#Build and launch ConnextCMS by executing the docker-compose file with the following command:
+#docker-compose up -d
 
 
 #IMAGE BUILD COMMANDS
