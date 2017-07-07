@@ -10,3 +10,4 @@ cd
 cd myCMS
 npm install
 cp ~/keystone.js .
+cp ~/dummyapp.js .
