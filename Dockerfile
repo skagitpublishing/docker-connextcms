@@ -82,7 +82,7 @@ RUN rm -f finalsetup /theme/
 RUN rm -f keystone.js
 RUN rm -f nodesource_setup.sh
 
-WORKDIR /home/connextcms/myCMS
+WORKDIR /home/connextcms
 
 EXPOSE 80
 
