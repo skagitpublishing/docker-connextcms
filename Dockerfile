@@ -89,15 +89,20 @@ EXPOSE 80
 
 
 #Temp commands just to get the container running
+WORKDIR /home/connextcms/myCMS
+CMD ["node", "dummyapp.js"]
+
+#WORKDIR /home/connextcms
+#RUN pwd
+#ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
+
+
+
+
+
+
+
 #WORKDIR /home/connextcms/myCMS
-#CMD ["node", "dummyapp.js"]
-
-WORKDIR /home/connextcms
-RUN pwd
-ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
-
-#WORKDIR /home/connextcms/myCMS
-
 #CMD ["node", "keystone.js"]
 #CMD ./mergeandlaunch
 #CMD ["node", "dummyapp.js"]
