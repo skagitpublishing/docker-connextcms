@@ -87,7 +87,7 @@ RUN rm -f nodesource_setup.sh
 
 #WORKDIR /home/connextcms/myCMS
 WORKDIR /home/connextcms
-ENTRYPOINT ["./mergeandlaunch]
+ENTRYPOINT ["./mergeandlaunch"]
 
 EXPOSE 80
 
