@@ -4,7 +4,8 @@
 #merge plugins and theme files before starting ConnextCMS/KeystoneJS.
 
 #Execute merge scripts. Put in path to each merge script you want to run here.
-~/theme/rtb4/merge-plugin
+cd ~/theme/rtb4/
+./merge-plugin
 
 #Launch KeystoneJS and ConnextCMS
 cd ~/myCMS

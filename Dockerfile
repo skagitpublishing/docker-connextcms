@@ -74,6 +74,7 @@ COPY mergeandlaunch mergeandlaunch
 COPY dummyapp.js dummyapp.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
+RUN sudo chmod 775 mergeandlaunch
 RUN ./finalsetup
 
 #Installation is buggy.
@@ -89,5 +90,5 @@ WORKDIR /home/connextcms/myCMS
 EXPOSE 80
 
 #CMD ["node", "keystone.js"]
-#CMD ./mergeandlaunch
-CMD ["node", "dummyapp.js"]
+CMD ./mergeandlaunch
+#CMD ["node", "dummyapp.js"]
