@@ -85,15 +85,16 @@ RUN rm -f finalsetup /theme/
 RUN rm -f keystone.js
 RUN rm -f nodesource_setup.sh
 
+EXPOSE 80
+
+
 #Temp commands just to get the container running
-WORKDIR /home/connextcms/myCMS
-CMD ["node", "dummyapp.js"]
+#WORKDIR /home/connextcms/myCMS
+#CMD ["node", "dummyapp.js"]
 
-#WORKDIR /home/connextcms
-#RUN pwd
-#ENTRYPOINT ./mergeandlaunch
-
-#EXPOSE 80
+WORKDIR /home/connextcms
+RUN pwd
+ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
 
 #WORKDIR /home/connextcms/myCMS
 
