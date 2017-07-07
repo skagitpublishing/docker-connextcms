@@ -8,6 +8,7 @@ cd connextCMS
 ./merge-connextcms-keystone
 cd
 cd myCMS
+echo 'Preparing to run npn install'
 npm install
 cp ~/keystone.js .
 cp ~/dummyapp.js .
