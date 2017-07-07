@@ -37,5 +37,5 @@ at load time.
 5. Bring ConnextCMS/KeystoneJS online by running the following command:
 `docker-compose up -d`
 
-Docker will build the ConnextCMS Docker image and launch it. At the end of it, KeystoneJS will be running on port 80, with ConnextCMS running with it.
+Docker will build the ConnextCMS Docker image and launch it. At the end, KeystoneJS will be running on port 80, with ConnextCMS running with it.
 
