@@ -24,6 +24,15 @@ running a $5 server for two months.
 shows how to do so on a Ubuntu system.
 
 3. Clone this repository in your home directory and execute the following command:
+`git clone https://github.com/skagitpublishing/docker-connextcms`
+
+4. (Optional) Add any [plugins](http://connextcms.com/page/plugins) or your own customized [plugin-template](https://github.com/skagitpublishing/plugin-template-connextcms) 
+to the `plugins` directory. Or add your own
+customized [site-template](https://github.com/skagitpublishing/site-template-connextcms) 
+to the `theme` directory. Be sure to edit the `mergeandlaunch` script to execute each merge
+script required to merge all project code at load time.
+
+5. Bring ConnextCMS/KeystoneJS online by running the following command:
 `docker-compose up -d`
 
 Docker will build the ConnextCMS Docker image and launch it. At the end of it, KeystoneJS will be running on port 80, with ConnextCMS running with it.

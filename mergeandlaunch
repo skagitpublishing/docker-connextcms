@@ -6,10 +6,10 @@
 echo Running mergeandlaunch script
 
 #Execute merge scripts. Put in path to each merge script you want to run here.
-cd ~/theme/rtb4/
-./merge-plugin
+#Here is an example of launching a site-template from the theme directory:
+#cd ~/theme/rtb4/
+#./merge-plugin
 
 #Launch KeystoneJS and ConnextCMS
 cd ~/myCMS
-
 exec "$@"
