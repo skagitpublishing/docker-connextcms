@@ -86,8 +86,9 @@ RUN rm -f keystone.js
 RUN rm -f nodesource_setup.sh
 
 #WORKDIR /home/connextcms/myCMS
-WORKDIR /home/connextcms
-ENTRYPOINT ["./mergeandlaunch"]
+#WORKDIR /home/connextcms
+RUN pwd
+ENTRYPOINT ./mergeandlaunch
 
 EXPOSE 80
 

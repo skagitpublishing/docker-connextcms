@@ -3,6 +3,8 @@
 #This script should be edited to execute any merge scripts needed to
 #merge plugins and theme files before starting ConnextCMS/KeystoneJS.
 
+echo Running mergeandlaunch script
+
 #Execute merge scripts. Put in path to each merge script you want to run here.
 cd ~/theme/rtb4/
 ./merge-plugin
