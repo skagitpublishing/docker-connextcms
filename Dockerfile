@@ -86,4 +86,5 @@ WORKDIR /home/connextcms/myCMS
 
 EXPOSE 80
 
-CMD ["node", "keystone.js"]
+#CMD ["node", "keystone.js"]
+CMD ["./mergeandlaunch"]
