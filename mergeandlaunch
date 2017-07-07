@@ -8,7 +8,7 @@ cd ~/theme/rtb4/
 ./merge-plugin
 
 #Launch KeystoneJS and ConnextCMS
-cd ~/myCMS
-node keystone.js
+#cd ~/myCMS
+#node keystone.js
 
 exec "$@"

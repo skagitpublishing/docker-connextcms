@@ -90,8 +90,9 @@ WORKDIR /home/connextcms
 
 EXPOSE 80
 
-#CMD ["node", "keystone.js"]
+ENTRYPOINT ["./mergeandlaunch]
+
+CMD ["node", "keystone.js"]
 #CMD ./mergeandlaunch
 #CMD ["node", "dummyapp.js"]
 
-ENTRYPOINT ["./mergeandlaunch]
