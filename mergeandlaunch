@@ -10,6 +10,11 @@ echo Running mergeandlaunch script
 #cd ~/theme/rtb4/
 #./merge-plugin
 
-#Launch KeystoneJS and ConnextCMS
+
 cd ~/myCMS
+
+#Copy the /public directory for nginx
+cp -r public/ ~/public
+
+#Launch KeystoneJS and ConnextCMS
 exec "$@"
