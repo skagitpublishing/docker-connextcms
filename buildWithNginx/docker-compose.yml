@@ -6,15 +6,19 @@ mongodb:
     - ./data:/data/db
   command: mongod --smallfiles --logpath=/dev/null # -- quiet
     
-
+nginx:
+  image: nginx
+  ports: 
+    - "80:80"
     
 connextcms:
   build: .
   dockerfile: Dockerfile
   links:
     - mongodb
+    - nginx
   ports:
-    - "80:80"
+    - "3000:80"
   volumes:
     - ./theme:/home/connextcms/theme
     - ./plugins:/home/connextcms/plugins
