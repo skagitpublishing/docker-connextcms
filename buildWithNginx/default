@@ -1,0 +1,82 @@
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+  listen 443 ssl http2 default_server;
+  listen [::]:443 ssl http2 default_server;
+
+  #root /var/www/html;
+  root /home/trout/myCMS/public;
+
+  server_name wellfuture.com www.wellfuture.com;
+  include snippets/ssl-wellfuture.com.conf;
+  include snippets/ssl-params.conf;
+
+  client_max_body_size 50M; #allow file uploads up to 50 MB
+
+  #Turn on gzip compression
+  gzip on;
+  gzip_disable "msie6";
+  gzip_comp_level 6;
+  gzip_min_length 1100;
+  gzip_buffers 16 8k;
+  gzip_proxied any;
+  gzip_types
+      text/plain
+      text/css
+      text/js
+      text/xml
+      text/javascript
+      application/javascript
+      application/x-javascript
+      application/json
+      application/xml
+      application/rss+xml
+      image/svg+xml;
+
+  
+  location ^~ /keystone {   
+    try_files $uri @backend2;
+  }
+  location @backend2 {
+    proxy_pass http://127.0.0.1:3000;
+    access_log off;
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header Host $host;
+    proxy_set_header X-Frame-Options SAMEORIGIN;
+
+  }
+  
+  location / {
+    # First attempt to serve request as file, then
+    # as directory, then fall back to displaying a 404.
+    #proxy_pass http://127.0.0.1:3001;
+    #try_files $uri $uri/ =404;
+
+    #http://ksloan.net/configuring-nginx-for-node-js-web-apps-that-serve-both-static-and-dynamic-content/
+    try_files $uri @backend1;
+    
+  }
+  location @backend1 {
+    proxy_pass http://127.0.0.1:3000;
+    access_log off;
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header Host $host;
+    proxy_set_header X-Frame-Options SAMEORIGIN;
+
+  }
+  
+  #Browser caching
+  location ~*  \.(jpg|jpeg|png|gif|ico|css|js|otf|ttf|woff2)$ {
+    expires 7d;
+  }
+  location ~*  \.(pdf)$ {
+    expires 7d;
+  }
+}
+
