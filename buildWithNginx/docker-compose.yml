@@ -1,0 +1,22 @@
+mongodb:
+  image: mongo
+  ports: 
+    - "3500:27017"
+  volumes:
+    - ./data:/data/db
+  command: mongod --smallfiles --logpath=/dev/null # -- quiet
+    
+
+    
+connextcms:
+  build: .
+  dockerfile: Dockerfile
+  links:
+    - mongodb
+  ports:
+    - "80:80"
+  volumes:
+    - ./theme:/home/connextcms/theme
+    - ./plugins:/home/connextcms/plugins
+  
+    
