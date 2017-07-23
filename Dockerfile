@@ -86,25 +86,21 @@ RUN rm -f finalsetup /theme/
 RUN rm -f keystone.js
 RUN rm -f nodesource_setup.sh
 
-EXPOSE 80
+#Use port 80 if you don't plan to use nginx and have only one installation.
+#EXPOSE 80
 
+#Use port 3000 or above if you plan to use nginx as a proxy and/or have multiple installations on the same server.
+EXPOSE 3000
 
-#Temp commands just to get the container running
+#Temp commands just to get the container running with docker-compose.
+#You can then enter the container with command: docker exec -it <container> /bin/bash
 #WORKDIR /home/connextcms/myCMS
 #CMD ["node", "dummyapp.js"]
 
 #change directory where the mergeandlaunch script is located.
 WORKDIR /home/connextcms
+#Run the mergeandlaunch script before starting Keystone with node.
 ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
 
 
-
-
-
-
-
-#WORKDIR /home/connextcms/myCMS
-#CMD ["node", "keystone.js"]
-#CMD ./mergeandlaunch
-#CMD ["node", "dummyapp.js"]
 
