@@ -26,6 +26,7 @@ RUN echo connextcms:password | chpasswd
 WORKDIR /home/connextcms
 
 #Install KeystoneJS Dependencies
+RUN apt-get update
 RUN apt-get install -y git
 RUN apt-get install -y curl
 RUN apt-get install -y nano
