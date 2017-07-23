@@ -34,6 +34,9 @@ RUN apt-get install -y nano
 #RUN apt-get install -y g++
 RUN apt-get install -y python
 
+#Fixes kerberos issue
+apt-get install libkrb5-dev
+
 #Install Node and NPM
 RUN curl -sL https://deb.nodesource.com/setup_4.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
@@ -77,15 +80,15 @@ COPY dummyapp.js dummyapp.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
-RUN ./finalsetup
+#RUN ./finalsetup
 
 #Installation is buggy.
 #RUN sudo npm install -g node-inspector
 
 #Clean up files
-RUN rm -f finalsetup /theme/
-RUN rm -f keystone.js
-RUN rm -f nodesource_setup.sh
+#RUN rm -f finalsetup /theme/
+#RUN rm -f keystone.js
+#RUN rm -f nodesource_setup.sh
 
 #Use port 80 if you don't plan to use nginx and have only one installation.
 #EXPOSE 80
@@ -95,13 +98,13 @@ EXPOSE 3000
 
 #Temp commands just to get the container running with docker-compose.
 #You can then enter the container with command: docker exec -it <container> /bin/bash
-#WORKDIR /home/connextcms/myCMS
-#CMD ["node", "dummyapp.js"]
+WORKDIR /home/connextcms/myCMS
+CMD ["node", "dummyapp.js"]
 
 #change directory where the mergeandlaunch script is located.
-WORKDIR /home/connextcms
+#WORKDIR /home/connextcms
 #Run the mergeandlaunch script before starting Keystone with node.
-ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
+#ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
 
 
 
