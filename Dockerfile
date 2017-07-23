@@ -65,8 +65,8 @@ VOLUME /home/connextcms/public
 USER connextcms
 
 #Clone the keystone files.
-RUN git clone https://github.com/skagitpublishing/keystone4-compiled
-RUN mv keystone4-compiled keystone4
+#RUN git clone https://github.com/skagitpublishing/keystone4-compiled
+#RUN mv keystone4-compiled keystone4
 #WORKDIR /home/connextcms/keystone4/node_modules/keystone
 #RUN npm install
 #WORKDIR /home/connextcms

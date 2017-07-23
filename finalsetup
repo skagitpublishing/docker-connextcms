@@ -2,6 +2,7 @@
 
 #Change owner of the mounted volumes. This must happen in the shells script as it will
 #not work inside the Dockerfile.
+echo 'password' | sudo -S pwd
 sudo chown -R connextcms /home/connextcms/public
 sudo chown -R connextcms /home/connextcms/theme
 sudo chown -R connextcms /home/connextcms/plugins
