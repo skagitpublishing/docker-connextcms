@@ -14,7 +14,7 @@ echo Running mergeandlaunch script
 cd ~/myCMS
 
 #Copy the /public directory for nginx
-cp -r public/ ~/public
+cp -r public/* ~/public
 
 #Launch KeystoneJS and ConnextCMS
 exec "$@"
