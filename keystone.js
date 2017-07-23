@@ -18,12 +18,12 @@ keystone.init({
   'name': 'keystone4',
   'brand': 'ConnextCMS',
 
-  'less': 'public',
-  'static': 'public',
-  'favicon': 'public/favicon.ico',
+  'less': '../public',
+  'static': '../public',
+  'favicon': '../public/favicon.ico',
   'views': 'templates/views',
   'view engine': 'hbs',
-  'port': 80,
+  'port': 3000,
 
   'custom engine': handlebars.create({
           layoutsDir: 'templates/views/layouts',
@@ -37,6 +37,7 @@ keystone.init({
   'session': true,
   'auth': true,
   'user model': 'User',
+  'file limit': '50MB',
   'mongo': 'mongodb://172.17.0.1:3500/connextcms'
 });
 
