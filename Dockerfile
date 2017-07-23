@@ -51,20 +51,25 @@ RUN setcap cap_net_bind_service=+ep /usr/bin/nodejs
 #Create a volume for persisting MongoDB data.
 VOLUME /data/db
 
-#Log into the shell as the newly created user
-USER connextcms
-
 #Create a directory for customizing the new site.
 VOLUME /home/connextcms/theme
 VOLUME /home/connextmcs/plugins
 VOLUME /home/connextcms/public
 
+#Change ownership of directories
+RUN chown -R connextcms public
+RUN chown -R connextcms theme
+RUN chown -R connextcms plugins
+
+#Log into the shell as the newly created user
+USER connextcms
+
 #Clone the keystone files.
 RUN git clone https://github.com/skagitpublishing/keystone4-compiled
 RUN mv keystone4-compiled keystone4
-#WORKDIR /home/connextcms/keystone4/node_modules/keystone
-#RUN npm install
-#WORKDIR /home/connextcms
+WORKDIR /home/connextcms/keystone4/node_modules/keystone
+RUN npm install
+WORKDIR /home/connextcms
 
 #Clone ConnextCMS
 RUN git clone https://github.com/skagitpublishing/ConnextCMS
