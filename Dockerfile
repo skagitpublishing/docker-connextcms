@@ -85,7 +85,7 @@ COPY dummyapp.js dummyapp.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
-#RUN ./finalsetup
+RUN ./finalsetup
 
 #Installation is buggy.
 #RUN sudo npm install -g node-inspector
