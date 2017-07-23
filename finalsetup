@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Change owner of the mounted volumes. This must happen in the shells script as it will
+#not work inside the Dockerfile.
+sudo chown -R connextcms /home/connextcms/public
+sudo chown -R connextcms /home/connextcms/theme
+sudo chown -R connextcms /home/connextcms/plugins
+
 #Final setup script. Executed at the end of the Dockerimage to do final setup.
 #Customize this script to execute and plugin or site merge scripts.
 cd
