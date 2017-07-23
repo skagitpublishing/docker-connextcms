@@ -75,7 +75,7 @@ keystone.set('nav', {
 //keystone.set('superusers', ['57c88289144da4ea0dc979db']);
 //keystone.set('admins', ['57c88289144da4ea0dc979db']);
 //This function reads in the publicsettings.json file and sets the list of admins and superusers.
-fs.readFile('public/js/publicsettings.json', 'utf8', function(err, data) {
+fs.readFile('../public/js/publicsettings.json', 'utf8', function(err, data) {
   //debugger;
 
   if(err) {
