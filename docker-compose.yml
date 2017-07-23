@@ -16,5 +16,5 @@ connextcms:
   volumes:
     - ./theme:/home/connextcms/theme
     - ./plugins:/home/connextcms/plugins
-  
+    - ./public:/home/connextcms/public
     
