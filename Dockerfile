@@ -53,13 +53,13 @@ VOLUME /data/db
 
 #Create a directory for customizing the new site.
 VOLUME /home/connextcms/theme
-VOLUME /home/connextmcs/plugins
+VOLUME /home/connextcms/plugins
 VOLUME /home/connextcms/public
 
 #Change ownership of directories
 RUN chown -R connextcms public
 RUN chown -R connextcms theme
-#RUN chown -R connextcms plugins
+RUN chown -R connextcms plugins
 
 #Log into the shell as the newly created user
 USER connextcms
