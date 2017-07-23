@@ -7,9 +7,6 @@ sudo chown -R connextcms /home/connextcms/public
 sudo chown -R connextcms /home/connextcms/theme
 sudo chown -R connextcms /home/connextcms/plugins
 
-#Copy keystone public files to the new public directory
-cp -r ~/keystone4/public/* ~/public
-
 #Final setup script. Executed at the end of the Dockerimage to do final setup.
 #Customize this script to execute and plugin or site merge scripts.
 cd
