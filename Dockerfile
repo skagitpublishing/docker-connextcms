@@ -56,10 +56,7 @@ VOLUME /home/connextcms/theme
 VOLUME /home/connextcms/plugins
 VOLUME /home/connextcms/public
 
-#Change ownership of directories
-RUN chown -R connextcms /home/connextcms/public
-RUN chown -R connextcms /home/connextcms/theme
-RUN chown -R connextcms /home/connextcms/plugins
+
 
 #Log into the shell as the newly created user
 USER connextcms
@@ -89,6 +86,11 @@ RUN ./finalsetup
 
 #Installation is buggy.
 #RUN sudo npm install -g node-inspector
+
+#Change ownership of directories
+RUN sudo chown -R connextcms /home/connextcms/public
+RUN sudo chown -R connextcms /home/connextcms/theme
+RUN sudo chown -R connextcms /home/connextcms/plugins
 
 #Clean up files
 #RUN rm -f finalsetup /theme/
