@@ -57,9 +57,9 @@ VOLUME /home/connextcms/plugins
 VOLUME /home/connextcms/public
 
 #Change ownership of directories
-RUN chown -R connextcms public
-RUN chown -R connextcms theme
-RUN chown -R connextcms plugins
+RUN chown -R connextcms /home/connextcms/public
+RUN chown -R connextcms /home/connextcms/theme
+RUN chown -R connextcms /home/connextcms/plugins
 
 #Log into the shell as the newly created user
 USER connextcms
