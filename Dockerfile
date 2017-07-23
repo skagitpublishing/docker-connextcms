@@ -35,7 +35,7 @@ RUN apt-get install -y nano
 RUN apt-get install -y python
 
 #Fixes kerberos issue
-apt-get install libkrb5-dev
+RUN apt-get install libkrb5-dev
 
 #Install Node and NPM
 RUN curl -sL https://deb.nodesource.com/setup_4.x -o nodesource_setup.sh
