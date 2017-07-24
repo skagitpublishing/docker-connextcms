@@ -5,10 +5,8 @@
 
 echo Running mergeandlaunch script
 
-#Execute merge scripts. Put in path to each merge script you want to run here.
-#Here is an example of launching a site-template from the theme directory:
-#cd ~/theme/rtb4/
-#./merge-plugin
+#Run any merge scripts to install plugins or site templates.
+public/merge-site-plugin-files
 
 
 cd ~/myCMS
