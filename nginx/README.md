@@ -44,6 +44,10 @@ change the directory path to the `public` directory containing static assets for
 
 `sudo certbot certonly --webroot -w /home/username/docker-connextcms/public -d example.com -d www.example.com`
 
+If successful, you'll be presented with 'Congradulations!' message. This message will contain the directory path
+to your certificate. **Take not of this directory path** as you'll use it in step 6. It will look like
+`/etc/letsencrypt/live/example.com/fullchain.pem`.
+
 5. Generate a strong DH group:
 
 `sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048`
