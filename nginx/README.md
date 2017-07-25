@@ -5,7 +5,7 @@ configure for various optimizations like browser caching and compression. It's a
 an SSL certificate. This readme also contains instructions for registering your domain with Let's Encrypt to 
 obtain an SSL certificate.
 
-This configuration opts to run nginx on the host system, as opposed to running it in a separate Docker container.
+This configuration described here opts to run nginx on the host system, as opposed to running it in a separate Docker container.
 This makes it easier to preserve encryption keys, and auto-renew the SSL certificate. Multiple installations of
 ConnextCMS can be run on the same machine. A single installation of nginx is easier to configure for proxying
 traffic to multiple applications.
@@ -22,7 +22,8 @@ It's assumed that you are starting with a fresh installation of Ubuntu 16.04 LTS
 It's also assumed that you are installing as a [non-root user with sudo privileges](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04). 
 
 1. Set up your site as a regular ConnextCMS installation. You should also have a registered domain names and functional
-DNS configuration so that the domain resolves to your ConnextCMS installation on port 80.
+DNS configuration so that the domain resolves to your ConnextCMS installation on port 3000, or any port other than 80.
+The steps below will configure Nginx to serve your website on port 80, but assumes your application is running on port 3000.
 
 2. Install Nginx:
 ```
@@ -76,7 +77,7 @@ server {
 
   
   #This block prevents browser caching of anything in the /keystone URI.
-  #Browser caching will brake the ability to log into KeystoneJS.
+  #Browser caching will break the ability to log into KeystoneJS.
   location ^~ /keystone {   
     try_files $uri @backend2;
   }
@@ -163,7 +164,7 @@ to your certificate. **Take not of this directory path** as you'll use it in ste
 
 `sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048`
 
-This will create a file at `/etc/ssl/certs/dhparam.pem`
+This will create a private key file at `/etc/ssl/certs/dhparam.pem`
 
 4. Create the file `sudo nano /etc/nginx/snippets/ssl-example.com.conf` and add these lines to the file:
 ```
