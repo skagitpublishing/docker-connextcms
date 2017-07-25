@@ -39,9 +39,10 @@ sudo apt-get update
 sudo apt-get install python-certbot-nginx 
 ```
 
-4. Obtain a certificate for your domain. Examples below will use **example.com** as the domain.
+4. Obtain a certificate for your domain. Examples below will use **example.com** as the domain. Be sure to
+change the directory path to the `public` directory containing static assets for your installation.
 
-`sudo certbot certonly --webroot -w /var/www/html/ -d example.com -d www.example.com`
+`sudo certbot certonly --webroot -w /home/username/docker-connextcms/public -d example.com -d www.example.com`
 
 5. Generate a strong DH group:
 
@@ -150,7 +151,7 @@ server {
   }
   
   #This block turns on browser caching of static assets and proxys
-  #the connection to the node applicatioin running on port 3000.
+  #the connection to the node application running on port 3000.
   location / {
     # First attempt to serve request as file, then
     # as directory, then fall back to displaying a 404.
