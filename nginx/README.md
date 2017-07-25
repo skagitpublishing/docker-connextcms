@@ -40,10 +40,13 @@ sudo apt-get install python-certbot-nginx
 ```
 
 4. Obtain a certificate for your domain. Examples below will use **example.com** as the domain.
-`sudo certbot certonly --webroot -w /var/www/html/ -d example.com`
+
+`sudo certbot certonly --webroot -w /var/www/html/ -d example.com -d www.example.com`
 
 5. Generate a strong DH group:
+
 `sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048`
+
 This will create a file at `/etc/ssl/certs/dhparam.pem`
 
 6. Create the file `sudo nano /etc/nginx/snippets/ssl-example.com.conf` and add these lines to the file:
@@ -78,10 +81,13 @@ ssl_dhparam /etc/ssl/certs/dhparam.pem;
 ```
 
 8. Backup the current nginx file:
+
 `sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak`
 
 9. Remove the nginx default file and create a new one with nano:
+
 `sudo rm default`
+
 `sudo nano default`
 
 10. Paste the following into it. Replace **example.com** with your domain and change the `root` directive to 
@@ -179,8 +185,10 @@ server {
 ```
 
 11. Check that there are no syntax errors in the config file:
+
 `sudo nginx -t`
 
 12. Restart nginx:
+
 `sudo systemctl restart nginx`
 
