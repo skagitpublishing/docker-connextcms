@@ -46,7 +46,7 @@ RUN apt-get install -y build-essential
 
 #Give node.js permission to run on port 80
 RUN apt-get install -y libcap2-bin
-RUN setcap cap_net_bind_service=+ep /usr/bin/nodejs
+#RUN setcap cap_net_bind_service=+ep /usr/bin/nodejs
 
 #Create a volume for persisting MongoDB data.
 VOLUME /data/db
