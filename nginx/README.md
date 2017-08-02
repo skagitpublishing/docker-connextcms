@@ -33,6 +33,8 @@ sudo apt-get install nginx
 
 3. Backup the nginx default file and create a new one with nano:
 
+`cd /etc/nginx/sites-available`
+
 `sudo mv default bkup-default`
 
 `sudo nano default`
