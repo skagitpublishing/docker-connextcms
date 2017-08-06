@@ -5,6 +5,7 @@ mongodb:
   volumes:
     - ./data:/data/db
   command: mongod --smallfiles --logpath=/dev/null # -- quiet
+  restart: always
     
 connextcms:
   build: .
@@ -17,4 +18,5 @@ connextcms:
     - ./theme:/home/connextcms/theme
     - ./plugins:/home/connextcms/plugins
     - ./public:/home/connextcms/public
+  restart: always
     
