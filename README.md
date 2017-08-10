@@ -1,5 +1,6 @@
 # docker-connextcms
-A Dockerfile used to create a Docker Image for running ConnextCMS and KeystoneJS in a Docker Container
+A Dockerfile used to create a Docker Image for running [ConnextCMS](https://github.com/skagitpublishing/connextCMS) 
+and [KeystoneJS](https://github.com/keystonejs/keystone) in a Docker Container.
 
 This repository contains two Dockerfiles and a docker-compose file. The Dockerfile in this root directory will 
 create a Docker image
