@@ -48,6 +48,9 @@ RUN apt-get install -y build-essential
 RUN apt-get install -y libcap2-bin
 #RUN setcap cap_net_bind_service=+ep /usr/bin/nodejs
 
+#Comment this instruction out if it causes errors.
+RUN sudo npm install -g node-inspector
+
 #Create a volume for persisting MongoDB data.
 VOLUME /data/db
 
@@ -79,8 +82,7 @@ RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
 RUN ./finalsetup
 
-#Installation is buggy.
-#RUN sudo npm install -g node-inspector
+
 
 #Clean up files
 #RUN rm -f finalsetup /theme/
@@ -92,6 +94,9 @@ RUN ./finalsetup
 
 #Use port 3000 or above if you plan to use nginx as a proxy and/or have multiple installations on the same server.
 EXPOSE 3000
+
+#Node-Inspector debug port
+EXPOSE 8080
 
 #Dummy app just to get the container running with docker-compose.
 #You can then enter the container with command: docker exec -it <container ID> /bin/bash
