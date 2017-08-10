@@ -82,6 +82,9 @@ RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
 RUN ./finalsetup
 
+#Create symlinks in the myCMS directory to the files and images directory
+RUN ln -s ~/public/uploads/images ~/myCMS/public/uploads/images
+RUN ln -s ~/public/uploads/files ~/myCMS/public/uploads/files
 
 
 #Clean up files
