@@ -83,11 +83,12 @@ RUN sudo chmod 775 mergeandlaunch
 RUN ./finalsetup
 
 #Create symlinks in the myCMS directory to the files and images directory
-RUN rm -rf ~/myCMS/public/uploads/images
-RUN rm -rf ~/myCMS/public/uploads/files
-RUN ln -s ~/public/uploads/images ~/myCMS/public/uploads/images
-RUN ln -s ~/public/uploads/files ~/myCMS/public/uploads/files
-
+WORKDIR /home/connextcms/myCMS/public/uploads
+RUN rm -rf images
+RUN rm -rf files
+RUN ln -s ~/public/uploads/images
+RUN ln -s ~/public/uploads/files
+WORKDIR /home/connextcms
 
 #Clean up files
 #RUN rm -f finalsetup /theme/
