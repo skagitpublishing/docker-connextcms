@@ -7,15 +7,12 @@
 #not work inside the Dockerfile. It also must happen at the launch of the Docker
 #container as it will not persist.
 echo 'password' | sudo -S pwd
-sudo chown -R connextcms /home/connextcms/public
-sudo chown -R connextcms /home/connextcms/theme
-sudo chown -R connextcms /home/connextcms/plugins
+sudo chown -R connextcms /home/connextcms
 
 echo Running mergeandlaunch script
 
 #Run any merge scripts to install plugins or site templates.
 public/merge-site-plugin-files
-
 
 cd ~/myCMS
 
