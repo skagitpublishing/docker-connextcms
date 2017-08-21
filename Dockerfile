@@ -60,9 +60,9 @@ VOLUME /home/connextcms/plugins
 VOLUME /home/connextcms/public
 
 #Change owner to prevent permission errors
-chown -R connextcms /home/connextcms/theme
-chown -R connextcms /home/connextcms/plugins
-chown -R connextcms /home/connextcms/public
+RUN chown -R connextcms /home/connextcms/theme
+RUN chown -R connextcms /home/connextcms/plugins
+RUN chown -R connextcms /home/connextcms/public
 
 #Log into the shell as the newly created user
 USER connextcms
