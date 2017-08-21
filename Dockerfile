@@ -73,6 +73,15 @@ RUN mv ConnextCMS connextCMS
 #Clone plugins
 #RUN git clone https://github.com/skagitpublishing/plugin-template-connextcms
 
+
+#Create symlinks in the myCMS directory to the files and images directory
+WORKDIR /home/connextcms/myCMS/public/uploads
+RUN rm -rf images
+RUN rm -rf files
+RUN ln -s ~/public/uploads/images
+RUN ln -s ~/public/uploads/files
+WORKDIR /home/connextcms
+
 COPY finalsetup finalsetup
 COPY keystone.js keystone.js
 COPY mergeandlaunch mergeandlaunch
@@ -94,13 +103,14 @@ EXPOSE 8080
 
 #Dummy app just to get the container running with docker-compose.
 #You can then enter the container with command: docker exec -it <container ID> /bin/bash
-#WORKDIR /home/connextcms/myCMS
-#CMD ["node", "dummyapp.js"]
+WORKDIR /home/connextcms/myCMS
+CMD ["node", "dummyapp.js"]
 
 #change directory where the mergeandlaunch script is located.
-WORKDIR /home/connextcms
+#WORKDIR /home/connextcms
+
 #Run the mergeandlaunch script before starting Keystone with node.
-ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
+#ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
 
 
 
