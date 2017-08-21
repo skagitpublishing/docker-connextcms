@@ -80,18 +80,8 @@ COPY dummyapp.js dummyapp.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
-
-
-#Create symlinks in the myCMS directory to the files and images directory
-WORKDIR /home/connextcms/myCMS/public/uploads
-RUN rm -rf images
-RUN rm -rf files
-RUN ln -s ~/public/uploads/images
-RUN ln -s ~/public/uploads/files
-WORKDIR /home/connextcms
-
-#This should be the last RUN command.
 RUN ./finalsetup
+
 
 #Use port 80 if you don't plan to use nginx and have only one installation.
 #EXPOSE 80

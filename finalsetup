@@ -19,3 +19,11 @@ echo 'Preparing to run npm install'
 npm install
 cp ~/keystone.js .
 cp ~/dummyapp.js .
+
+#Create symlinks in the myCMS directory to the files and images directory
+cd /home/connextcms/myCMS/public/uploads
+rm -rf images
+rm -rf files
+ln -s ~/public/uploads/images
+ln -s ~/public/uploads/files
+cd /home/connextcms
