@@ -59,11 +59,6 @@ VOLUME /home/connextcms/theme
 VOLUME /home/connextcms/plugins
 VOLUME /home/connextcms/public
 
-#Change owner to prevent permission errors
-RUN chown -R connextcms /home/connextcms/theme
-RUN chown -R connextcms /home/connextcms/plugins
-RUN chown -R connextcms /home/connextcms/public
-
 #Log into the shell as the newly created user
 USER connextcms
 
@@ -85,7 +80,7 @@ COPY dummyapp.js dummyapp.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
-RUN ./finalsetup
+
 
 #Create symlinks in the myCMS directory to the files and images directory
 WORKDIR /home/connextcms/myCMS/public/uploads
@@ -95,10 +90,8 @@ RUN ln -s ~/public/uploads/images
 RUN ln -s ~/public/uploads/files
 WORKDIR /home/connextcms
 
-#Clean up files
-#RUN rm -f finalsetup /theme/
-#RUN rm -f keystone.js
-#RUN rm -f nodesource_setup.sh
+#This should be the last RUN command.
+RUN ./finalsetup
 
 #Use port 80 if you don't plan to use nginx and have only one installation.
 #EXPOSE 80
