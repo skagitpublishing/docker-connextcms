@@ -49,7 +49,7 @@ RUN apt-get install -y libcap2-bin
 #RUN setcap cap_net_bind_service=+ep /usr/bin/nodejs
 
 #Comment this instruction out if it causes errors.
-RUN sudo npm install -g node-inspector
+#RUN sudo npm install -g node-inspector
 
 #Create a volume for persisting MongoDB data.
 VOLUME /data/db
@@ -63,8 +63,8 @@ VOLUME /home/connextcms/public
 WORKDIR /home/connextcms/myCMS/public/uploads
 RUN rm -rf images
 RUN rm -rf files
-RUN ln -s ~/public/uploads/images
-RUN ln -s ~/public/uploads/files
+RUN ln -s ~/public/uploads/images images
+RUN ln -s ~/public/uploads/files files
 WORKDIR /home/connextcms
 
 #Log into the shell as the newly created user
@@ -101,18 +101,18 @@ RUN ./finalsetup
 EXPOSE 3000
 
 #Node-Inspector debug port
-EXPOSE 8080
+#EXPOSE 8080
 
 #Dummy app just to get the container running with docker-compose.
 #You can then enter the container with command: docker exec -it <container ID> /bin/bash
-#WORKDIR /home/connextcms/myCMS
-#CMD ["node", "dummyapp.js"]
+WORKDIR /home/connextcms/myCMS
+CMD ["node", "dummyapp.js"]
 
 #change directory where the mergeandlaunch script is located.
-WORKDIR /home/connextcms
+#WORKDIR /home/connextcms
 
 #Run the mergeandlaunch script before starting Keystone with node.
-ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
+#ENTRYPOINT ["./mergeandlaunch", "node", "keystone.js"]
 
 
 
