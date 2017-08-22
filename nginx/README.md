@@ -91,7 +91,6 @@ server {
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
     proxy_set_header Host $host;
-    proxy_set_header X-Frame-Options SAMEORIGIN;
 
   }
   
@@ -114,7 +113,6 @@ server {
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
     proxy_set_header Host $host;
-    proxy_set_header X-Frame-Options SAMEORIGIN;
 
   }
 
@@ -193,7 +191,6 @@ resolver_timeout 5s;
 # the "preload" directive if you understand the implications.
 #add_header Strict-Transport-Security "max-age=63072000; includeSubdomains; preload";
 add_header Strict-Transport-Security "max-age=63072000; includeSubdomains";
-add_header X-Frame-Options DENY;
 add_header X-Content-Type-Options nosniff;
 		
 ssl_dhparam /etc/ssl/certs/dhparam.pem;
@@ -263,7 +260,6 @@ server {
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
     proxy_set_header Host $host;
-    proxy_set_header X-Frame-Options SAMEORIGIN;
 
   }
   
@@ -286,7 +282,6 @@ server {
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
     proxy_set_header Host $host;
-    proxy_set_header X-Frame-Options SAMEORIGIN;
 
   }
 
