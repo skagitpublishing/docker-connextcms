@@ -91,7 +91,7 @@ COPY dummyapp.js dummyapp.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
-RUN ./finalsetup
+#RUN ./finalsetup
 
 
 #Use port 80 if you don't plan to use nginx and have only one installation.
