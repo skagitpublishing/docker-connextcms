@@ -12,6 +12,7 @@ sudo chown -R connextcms /home/connextcms
 echo Running mergeandlaunch script
 
 #Run any merge scripts to install plugins or site templates.
+sudo chmod 775 public/merge-site-plugin-files
 public/merge-site-plugin-files
 
 cd ~/myCMS
