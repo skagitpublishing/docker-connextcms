@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo Making final preparations to the container. This will take a minute...
+
 #Change owner of the mounted volumes. This must happen in the shells script as it will
 #not work inside the Dockerfile.
 echo 'password' | sudo -S pwd

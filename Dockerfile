@@ -87,11 +87,11 @@ RUN mv ConnextCMS connextCMS
 COPY finalsetup finalsetup
 COPY keystone.js keystone.js
 COPY mergeandlaunch mergeandlaunch
-COPY dummyapp.js /home/connextcms/myCMS/dummyapp.js
+COPY dummyapp.js dummyapp.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
-#RUN ./finalsetup
+RUN ./finalsetup
 
 
 #Use port 80 if you don't plan to use nginx and have only one installation.
