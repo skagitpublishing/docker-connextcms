@@ -105,7 +105,7 @@ EXPOSE 3000
 
 #Dummy app just to get the container running with docker-compose.
 #You can then enter the container with command: docker exec -it <container ID> /bin/bash
-WORKDIR /home/connextcms/myCMS
+WORKDIR /home/connextcms
 CMD ["node", "dummyapp.js"]
 
 #change directory where the mergeandlaunch script is located.

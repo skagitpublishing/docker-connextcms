@@ -16,5 +16,5 @@ cd myCMS
 echo 'Preparing to run npm install'
 npm install
 cp ~/keystone.js .
-cp ~/dummyapp.js .
+#cp ~/dummyapp.js .
 
