@@ -49,6 +49,20 @@ You can also follow [these nginx instructions](nginx/README.md) to setup nginx i
 in order to forward traffic from port 80 (the normal web browser port) to port 3000, and also how to install
 an SSL certificate from Let's Encrypt for implementing HTTPS.
 
+## Docker Debugging
+The following commands are useful for debugging applications like this one inside a Docker container. The commands
+below help you to enter a shell inside the container.
+
+* `docker build -t test-container .`
+This command will build a Docker image from the Dockerfile in the current directory.
+
+* `docker container run --name test-container --rm -it <Image ID> bash`
+This command will run a docker container and drop you into a bash shell. All you need is the image ID.
+
+* `docker exec -it <container ID> bash`
+This command will let you enter a bash shell inside a running Docker container.
+
+
 # License
 MIT License
 
