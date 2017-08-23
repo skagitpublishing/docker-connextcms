@@ -54,12 +54,11 @@ The following commands are useful for debugging applications like this one insid
 below help you to enter a shell inside the container.
 
 * `docker build -t test-container .`
-
-This command will build a Docker image from the Dockerfile in the current directory.
+  * This command will build a Docker image from the Dockerfile in the current directory.
 
 * `docker container run --name test-container --rm -it <Image ID> bash`
 
-This command will run a docker container and drop you into a bash shell. All you need is the image ID.
+  * This command will run a docker container and drop you into a bash shell. All you need is the image ID.
 
 * `docker exec -it <container ID> bash`
 
