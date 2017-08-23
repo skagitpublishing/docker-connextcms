@@ -35,12 +35,19 @@ to the `theme` directory. Be sure to edit the `mergeandlaunch` script to execute
 script required to merge your plugins and site files into [ConnextCMS Core](https://github.com/skagitpublishing/connextCMS) 
 at load time.
 
-5. Bring ConnextCMS/KeystoneJS online by running the following command:
+5. Build the ConnextCMS docker container. The `--no-cache` option should be used to prevent issues with symbolic links.
+`docker-compose build --no-cache`
+
+6. Bring ConnextCMS/KeystoneJS online by running the following command:
 `docker-compose up -d`
 
-Docker will build the ConnextCMS Docker image and launch it. At the end, KeystoneJS will be running on port 3000, 
+Docker will then launch the ConnextCMS Docker image. At the end, KeystoneJS will be running on port 3000, 
 with ConnextCMS running with it. For additional information on how to setup a production server with this container,
 [see the three-part video series on ConnextCMS.com](http://connextcms.com/page/videos).
+
+You can also follow [these nginx instructions](nginx/README.md) to setup nginx in front of your Docker container
+in order to forward traffic from port 80 (the normal web browser port) to port 3000, and also how to install
+an SSL certificate from Let's Encrypt for implementing HTTPS.
 
 # License
 MIT License
