@@ -11,13 +11,9 @@ sudo chown -R connextcms /home/connextcms
 
 echo Running mergeandlaunch script
 
-#Run any merge scripts to install plugins or site templates.
-sudo chmod 775 public/merge-site-plugin-files
-public/merge-site-plugin-files
-
-cd ~/myCMS
 
 #Copy the /public directory for nginx
+cd ~/myCMS
 cp -rP public/* ~/public
 
 #Unlink any symlinks that may be been previously created
@@ -30,6 +26,13 @@ rm -rf images
 rm -rf files
 ln -s ~/public/uploads/images images
 ln -s ~/public/uploads/files files
+
+#Run any merge scripts to install plugins or site templates.
+cd ~/public
+sudo chmod 775 merge-site-plugin-files
+merge-site-plugin-files
+
+cd ~/myCMS
 
 #Launch KeystoneJS and ConnextCMS
 exec "$@"
