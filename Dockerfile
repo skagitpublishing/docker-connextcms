@@ -94,6 +94,7 @@ RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
 RUN ./finalsetup
 
+RUN sudo chown -R connextcms /home/connextcms
 
 #Use port 80 if you don't plan to use nginx and have only one installation.
 #EXPOSE 80

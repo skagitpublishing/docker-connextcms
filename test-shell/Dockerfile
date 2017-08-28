@@ -59,14 +59,6 @@ VOLUME /home/connextcms/theme
 VOLUME /home/connextcms/plugins
 VOLUME /home/connextcms/public
 
-#Create symlinks in the myCMS directory to the files and images directory
-#WORKDIR /home/connextcms/myCMS/public/uploads
-#RUN rm -rf images
-#RUN rm -rf files
-#RUN ln -s ~/public/uploads/images images
-#RUN ln -s ~/public/uploads/files files
-#WORKDIR /home/connextcms
-
 #Log into the shell as the newly created user
 USER connextcms
 
