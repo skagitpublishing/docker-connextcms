@@ -94,8 +94,6 @@ RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
 RUN ./finalsetup
 
-RUN sudo chown -R connextcms /home/connextcms
-
 #Use port 80 if you don't plan to use nginx and have only one installation.
 #EXPOSE 80
 
@@ -107,8 +105,9 @@ EXPOSE 3000
 
 #Dummy app just to get the container running with docker-compose.
 #You can then enter the container with command: docker exec -it <container ID> /bin/bash
-WORKDIR /home/connextcms/myCMS
-CMD ["node", "dummyapp.js"]
+WORKDIR /home/connextcms
+ENTRYPOINT ["./mergeandlaunch", "node", "dummyapp.js"]
+#CMD ["node", "dummyapp.js"]
 
 #change directory where the mergeandlaunch script is located.
 #WORKDIR /home/connextcms

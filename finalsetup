@@ -25,16 +25,16 @@ cp ~/dummyapp.js .
 
 #Copy the ~/myCMS/public directory into the ~/public directory so that
 #nginx has access to the static assets.
-cp -rP public/* ~/public
+#cp -rP public/* ~/public
 
 #Unlink any symlinks that may be been previously created
-unlink ~/myCMS/public/uploads/files
-unlink ~/myCMS/public/uploads/images
+#unlink ~/myCMS/public/uploads/files
+#unlink ~/myCMS/public/uploads/images
 
 #Replace the images and files upload directories with symbolic links
-cd public/uploads
-rm -rf images
-rm -rf files
-ln -s ~/public/uploads/images images
-ln -s ~/public/uploads/files files
+#cd public/uploads
+#rm -rf images
+#rm -rf files
+#ln -s ~/public/uploads/images images
+#ln -s ~/public/uploads/files files
 
