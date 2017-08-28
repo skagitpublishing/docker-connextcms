@@ -1,4 +1,4 @@
-mongodb:
+mongodb-test:
   image: mongo
   ports: 
     - "3500:27017"
@@ -7,7 +7,7 @@ mongodb:
   command: mongod --smallfiles --logpath=/dev/null # -- quiet
   restart: always
     
-connextcms:
+connextcms-test:
   build: .
   dockerfile: Dockerfile
   links:
