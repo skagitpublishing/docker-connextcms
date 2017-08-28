@@ -25,9 +25,9 @@ cp ~/dummyapp.js .
 cp -r public/* ~/public
 
 #Replace the images and files upload directories with symbolic links
-cd public/uploads
-rm -rf images
-rm -rf files
-ln -s ~/public/uploads/images images
-ln -s ~/public/uploads/files files
+#cd public/uploads
+#rm -rf images
+#rm -rf files
+#ln -s ~/public/uploads/images images
+#ln -s ~/public/uploads/files files
 
