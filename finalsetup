@@ -7,6 +7,9 @@ echo Making final preparations to the container. This will take a minute...
 echo 'password' | sudo -S pwd
 sudo chown -R connextcms /home/connextcms
 
+#Show that the permissions have been changed.
+ls -al
+
 #Final setup script. Executed at the end of the Dockerimage to do final setup.
 #Customize this script to execute and plugin or site merge scripts.
 cd
