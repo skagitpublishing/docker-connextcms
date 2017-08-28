@@ -85,9 +85,9 @@ RUN mv ConnextCMS connextCMS
 
 
 COPY finalsetup finalsetup
-COPY keystone.js /home/connextcms/myCMS/keystone.js
+COPY keystone.js keystone.js
 COPY mergeandlaunch mergeandlaunch
-COPY dummyapp.js /home/connextcms/myCMS/dummyapp.js
+COPY dummyapp.js dummyapp.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
@@ -105,7 +105,7 @@ EXPOSE 3000
 
 #Dummy app just to get the container running with docker-compose.
 #You can then enter the container with command: docker exec -it <container ID> /bin/bash
-WORKDIR /home/connextcms/myCMS
+WORKDIR /home/connextcms
 CMD ["node", "dummyapp.js"]
 
 #change directory where the mergeandlaunch script is located.
