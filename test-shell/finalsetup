@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo Making final preparations to the container. This will take a minute...
+
+#Change owner of the mounted volumes. This must happen in the shells script as it will
+#not work inside the Dockerfile.
+echo 'password' | sudo -S pwd
+sudo chown -R connextcms /home/connextcms
+
+#Final setup script. Executed at the end of the Dockerimage to do final setup.
+#Customize this script to execute and plugin or site merge scripts.
+cd
+cd connextCMS
+./copy-keystone
+./merge-connextcms-keystone
+cd
+cd myCMS
+echo 'Preparing to run npm install'
+npm install
+cp ~/keystone.js .
+cp ~/dummyapp.js .
+
+#Copy the ~/myCMS/public directory into the ~/public directory so that
+#nginx has access to the static assets.
+cp -r public/* ~/public
+
+#Replace the images and files upload directories with symbolic links
+cd public/uploads
+rm -rf images
+rm -rf files
+ln -s ~/public/uploads/images images
+ln -s ~/public/uploads/files files
+

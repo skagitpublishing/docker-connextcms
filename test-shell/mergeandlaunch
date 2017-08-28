@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#This script should be edited to execute any merge scripts needed to
+#merge plugins and theme files before starting ConnextCMS/KeystoneJS.
+
+#Change owner of the mounted volumes. This must happen in the shells script as it will
+#not work inside the Dockerfile. It also must happen at the launch of the Docker
+#container as it will not persist.
+echo 'password' | sudo -S pwd
+sudo chown -R connextcms /home/connextcms
+
+echo Running mergeandlaunch script
+
+#Run any merge scripts to install plugins or site templates.
+sudo chmod 775 public/merge-site-plugin-files
+public/merge-site-plugin-files
+
+cd ~/myCMS
+
+#Copy the /public directory for nginx
+cp -r public/* ~/public
+
+#Launch KeystoneJS and ConnextCMS
+exec "$@"

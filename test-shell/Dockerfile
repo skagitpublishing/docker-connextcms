@@ -84,10 +84,10 @@ RUN mv ConnextCMS connextCMS
 
 
 
-COPY finalsetup ../finalsetup
-COPY keystone.js ../keystone.js
-COPY mergeandlaunch ../mergeandlaunch
-COPY dummyapp.js ../dummyapp.js
+COPY finalsetup finalsetup
+COPY keystone.js keystone.js
+COPY mergeandlaunch mergeandlaunch
+COPY dummyapp.js dummyapp.js
 RUN echo 'password' | sudo -S pwd
 RUN sudo chmod 775 finalsetup
 RUN sudo chmod 775 mergeandlaunch
