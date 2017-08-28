@@ -29,8 +29,8 @@ ln -s ~/public/uploads/files files
 
 #Run any merge scripts to install plugins or site templates.
 cd ~/public
-sudo chmod 775 merge-site-plugin-files
-merge-site-plugin-files
+chmod 775 merge-site-plugin-files
+./merge-site-plugin-files
 
 cd ~/myCMS
 
