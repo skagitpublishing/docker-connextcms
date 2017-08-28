@@ -59,6 +59,7 @@ VOLUME /home/connextcms/theme
 VOLUME /home/connextcms/plugins
 VOLUME /home/connextcms/public
 
+#THIS PARAGRAPH WILL BE REMOVED
 #Create symlinks in the myCMS directory to the files and images directory
 #WORKDIR /home/connextcms/myCMS/public/uploads
 #RUN rm -rf images
