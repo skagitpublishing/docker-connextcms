@@ -14,7 +14,7 @@ connextcms-test:
     - mongodb-test
   ports:
     - "3000:3000"
-    - "8080:8080"
+#    - "8080:8080"
   volumes:
     - ./theme:/home/connextcms/theme
     - ./plugins:/home/connextcms/plugins
