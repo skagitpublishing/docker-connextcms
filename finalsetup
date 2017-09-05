@@ -1,4 +1,5 @@
 #!/bin/bash
+#This script file runs any final setup before finalizing the Docker image.
 
 echo Making final preparations to the container. This will take a minute...
 
