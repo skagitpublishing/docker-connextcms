@@ -21,8 +21,9 @@ cp -rP public/* ~/public
 unlink ~/myCMS/public/uploads/files
 unlink ~/myCMS/public/uploads/images
 
+
 #Replace the images and files upload directories with symbolic links
-cd public/uploads
+cd ~/myCMS/public/uploads
 rm -rf images
 rm -rf files
 ln -s ~/public/uploads/images images
